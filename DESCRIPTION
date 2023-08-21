@@ -1,0 +1,25 @@
+Package: fieldgoapi
+Type: Package
+Title: An R-client of FieldGo API
+Version: 0.1.0
+Author: Metrika Group
+Maintainer: Omar E. Benites-Alfaro <o.benites@metrikagroup.com>
+Description: R-package which implement the FieldGo API to handle information about experimental data.
+    FieldGo is a tool to create experimental and observational trials on the web.
+License: CC BY 4.0
+Imports: R6,
+         curl,
+         httr,
+         jsonlite,
+         tibble,
+         dplyr
+Collate: 'FieldGoClient.R'
+         'checkers.R'
+         'fgo_studydesign.R'
+         'fgo_studyfbook.R'
+         'fgo_studyinfo.R'
+         'fgo_studysite.R'
+         'method_wrappers.R'
+         'utils.R'
+Encoding: UTF-8
+LazyData: true
