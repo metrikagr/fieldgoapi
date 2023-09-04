@@ -96,7 +96,7 @@ as_data_frame_fgo <-  function(.data){
 
     #extract only data (not success atribute)
     cont <- jsonlite::fromJSON(.data)$data
-    if(nrow(cont)>1){
+    if(length(cont)>1){
         out <- cont
     } else {
         out <-  fill_missing_values(cont) %>%

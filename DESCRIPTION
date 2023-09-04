@@ -14,7 +14,6 @@ Imports: R6,
          tibble,
          dplyr
 Collate: 'FieldGoClient.R'
-         'checkers.R'
          'fgo_studydesign.R'
          'fgo_studyfbook.R'
          'fgo_studyinfo.R'
@@ -23,3 +22,7 @@ Collate: 'FieldGoClient.R'
          'utils.R'
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    httptest,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
