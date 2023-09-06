@@ -8,5 +8,7 @@
 
 library(testthat)
 library(fieldgoapi)
+library(tidyverse)
+library(httr)
 
 test_check("fieldgoapi")

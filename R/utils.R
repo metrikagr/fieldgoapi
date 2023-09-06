@@ -29,7 +29,7 @@
 #' @export
 #'
 fill_missing_values <- function(.list) {
-    browse()
+
     lapply(.list, function(x) {
         if(is.na(x)) {
             return("")
@@ -67,8 +67,11 @@ fill_missing_values <- function(.list) {
 #' @export
 #'
 list_to_dataframe <- function(.list) {
-    enframe(.list, name = "Names", value = "Values") %>%
-    as.data.frame(stringsAsFactors=FALSE)
+    #enframe(.list, name = "Names", value = "Values") %>%
+    Names <- names(.list)
+    Values <- unlist(.list, use.names = FALSE)
+    out <- data.frame(Names, Values)
+    return(out)
 }
 
 
@@ -96,16 +99,22 @@ as_data_frame_fgo <-  function(.data){
 
     #extract only data (not success atribute)
     cont <- jsonlite::fromJSON(.data)$data
-    if(length(cont)>1){
-        out <- cont
-    } else {
-        out <-  fill_missing_values(cont) %>%
-                list_to_dataframe()
+    out <-  fill_missing_values(cont) %>%
+                  list_to_dataframe()
 
-        colnames(out) <- c("DbAttribute","Value")
-
-    }
+    colnames(out) <- c("DbAttribute","Value")
     return(out)
+
+    # if(length(cont)>1){
+    #     out <- cont
+    # } else {
+    #     out <-  fill_missing_values(cont) %>%
+    #             list_to_dataframe()
+    #
+    #     colnames(out) <- c("DbAttribute","Value")
+    #
+    # }
+    # return(out)
 }
 
 
