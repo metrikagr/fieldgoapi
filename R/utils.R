@@ -31,7 +31,9 @@
 fill_missing_values <- function(.list) {
 
     lapply(.list, function(x) {
-        if(is.na(x)) {
+        if(is.null(x)) {
+            return("")
+        } else if(is.na(x)){
             return("")
         } else {
             return(x)

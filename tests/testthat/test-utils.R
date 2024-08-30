@@ -23,8 +23,8 @@ test_that("Test list_to_dataframe for studyinfo with NA values", {
     }
 
     # Combine the two named lists into a single named list
-    combined_list <- list(Status = status, Data = values)
-    out <- fieldgoapi::list_to_dataframe(combined_list$Data)
+    combined_list <- list(Status = status, data = values)
+    out <- fieldgoapi::list_to_dataframe(combined_list$data)
     out_noNA <- out$Values %>% assertthat::noNA()
 
     testthat::expect_equal(10, nrow(out))
@@ -54,8 +54,8 @@ test_that("Test list_to_dataframe for studyinfo with NA", {
 
 
     # Combine the two named lists into a single named list
-    combined_list <- list(Status = status, Data = values)
-    out <- fieldgoapi::list_to_dataframe(combined_list$Data)
+    combined_list <- list(Status = status, data = values)
+    out <- fieldgoapi::list_to_dataframe(combined_list$data)
     #out_noNA <- out$Values %>% assertthat::noNA()
     testthat::expect_equal(10, nrow(out))
     testthat::expect_true(!assertthat::noNA(out$Values))
@@ -77,8 +77,8 @@ test_that("Test fill_missing_values for studyinfo with complete values", {
                    value6 = "f", value7 = "g", value8 = "h", value9 = "i", value10 = "j")
 
     # Combine the two named lists into a single named list
-    combined_list <- list(Status = status, Data = values)
-    out <- fieldgoapi::fill_missing_values(combined_list$Data)
+    combined_list <- list(Status = status, data = values)
+    out <- fieldgoapi::fill_missing_values(combined_list$data)
 
     testthat::expect_type(object = out, "list")
     testthat::expect_equal(0, sum(out==""))

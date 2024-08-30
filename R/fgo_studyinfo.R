@@ -65,7 +65,7 @@ FgStudyInfo$set(which = "public", name = "fg_get_studyinfo_studyId",
                           format=c("json","list","data.frame"),
                           ... ){
 
-                    super$endPoint <- "study/"
+                    super$endPoint <- "/r-plumber/study/"
                     queryParams <- studyDbId
 
                     url  <- paste0(self$serverURL, self$version, super$endPoint) #everything before the URL
